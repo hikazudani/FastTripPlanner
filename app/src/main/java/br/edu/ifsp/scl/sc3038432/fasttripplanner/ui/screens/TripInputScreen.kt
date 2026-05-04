@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -26,6 +28,8 @@ import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.PrimaryButton
 fun TripInputScreen(
     onNext: (destination: String, days: Int, budget: Double) -> Unit
 ) {
+
+    val context = LocalContext.current
 
     var destination by rememberSaveable { mutableStateOf("") }
     var days by rememberSaveable { mutableStateOf("") }
@@ -63,9 +67,36 @@ fun TripInputScreen(
 
         PrimaryButton(
             text = "Próximo",
-            onClick = {}
+            onClick = {
+                val error = validateInputs(destination, days, budget)
+                if ( error == null ) {
+                    onNext(destination, days.toInt(), budget.toDouble() )
+                } else {
+                    Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
+}
+
+private fun validateInputs(destination: String, days: String, budget: String): String? {
+    if ( destination.isBlank() ) {
+        return "Informe o destino"
+    }
+
+    val parsedDays = days.toIntOrNull()
+
+    if (parsedDays == null || parsedDays <= 0) {
+        return "Informe um número de dias válido"
+    }
+
+    val parsedBudget = budget.toDoubleOrNull()
+
+    if (parsedBudget == null || parsedBudget <= 0) {
+        return "Informe um orçamento válido"
+    }
+
+    return null
 }
 
 @Preview(showBackground = true)
