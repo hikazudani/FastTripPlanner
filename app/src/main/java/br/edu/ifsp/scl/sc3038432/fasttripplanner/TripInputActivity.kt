@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.sc3038432.fasttripplanner
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,37 +12,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.screens.TripInputScreen
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.theme.FastTripPlannerTheme
 
 class TripInputActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            FastTripPlannerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+            TripInputScreen(
+                onNext = { destination, days, budget ->
+                    val intent = Intent(this, TripOptionsActivity::class.java)
+                    intent.putExtra("destination", destination)
+                    intent.putExtra("days", days)
+                    intent.putExtra("budget", budget)
+                    startActivity(intent)
                 }
-            }
+            )
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FastTripPlannerTheme {
-        Greeting("Android")
     }
 }
