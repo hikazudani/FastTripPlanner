@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
+/* Full-width button used as the primary action throughout the app. */
 @Composable
 fun PrimaryButton(
     text: String,

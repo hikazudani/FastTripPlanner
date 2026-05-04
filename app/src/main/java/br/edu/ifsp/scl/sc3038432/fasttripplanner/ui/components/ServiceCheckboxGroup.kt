@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/* Checkbox group for selecting optional trip services (transport, food and tours). */
 @Composable
 fun ServiceCheckboxGroup(
     hasTransport: Boolean,

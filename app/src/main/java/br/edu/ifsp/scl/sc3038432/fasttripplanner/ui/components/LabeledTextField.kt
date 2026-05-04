@@ -12,6 +12,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+/* Text field with a label above the input. */
 @Composable
 fun LabeledTextField(
     label: String,

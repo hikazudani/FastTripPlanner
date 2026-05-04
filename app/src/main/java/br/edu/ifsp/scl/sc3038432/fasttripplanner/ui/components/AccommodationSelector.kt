@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 
 val accommodationOptions = listOf("Economica", "Conforto", "Luxo")
 
+/* Radio button group for selecting the accommodation type. */
 @Composable
 fun AccommodationSelector(
     selected: String,
