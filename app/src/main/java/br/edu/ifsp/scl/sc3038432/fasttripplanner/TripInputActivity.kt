@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.theme.FastTripPlannerTheme
 
-class MainActivity : ComponentActivity() {
+class TripInputActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
