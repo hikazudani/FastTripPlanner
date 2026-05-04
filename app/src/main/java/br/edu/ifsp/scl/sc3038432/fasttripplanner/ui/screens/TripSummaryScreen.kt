@@ -23,6 +23,11 @@ import java.util.Locale
 private val currencyFormat = NumberFormat
     .getCurrencyInstance(Locale.forLanguageTag("pt-BR"))
 
+/*
+ * Third and final screen. Displays a complete summary of all trip data,
+ * calculates and shows the estimated total cost,
+ * and allows restarting the planning flow.
+ */
 @Composable
 fun TripSummaryScreen(
     destination: String,

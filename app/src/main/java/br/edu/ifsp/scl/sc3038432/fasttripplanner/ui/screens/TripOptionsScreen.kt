@@ -24,6 +24,11 @@ import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.AccommodationSele
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.PrimaryButton
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.ServiceCheckboxGroup
 
+/*
+ * Second screen. Displays a summary of the trip data received from TripInputScreen,
+ * allows selecting accommodation type and additional services,
+ * and navigates to the summary screen with the collected options.
+ */
 @Composable
 fun TripOptionsScreen(
     destination: String,

@@ -24,6 +24,10 @@ import br.edu.ifsp.scl.sc3038432.fasttripplanner.R
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.LabeledTextField
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.PrimaryButton
 
+/*
+ * First screen of the app. Collects destination, number of days
+ * and daily budget, validates the inputs and navigates to the options screen.
+ */
 @Composable
 fun TripInputScreen(
     onNext: (destination: String, days: Int, budget: Double) -> Unit
