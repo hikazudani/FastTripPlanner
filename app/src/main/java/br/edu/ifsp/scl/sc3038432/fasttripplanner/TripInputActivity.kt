@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.screens.TripInputScreen
 
-
+// Entry point activity — collects trip data and navigates to options screen
 class TripInputActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

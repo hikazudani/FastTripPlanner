@@ -7,6 +7,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.screens.TripOptionsScreen
 
+/*
+ * Receives trip data from TripInputActivity,
+ * collects accommodation and service options,
+ * and navigates to the summary screen with all data.
+ */
 class TripOptionsActivity : ComponentActivity() {
 
     override fun onCreate( savedInstanceState: Bundle? ) {

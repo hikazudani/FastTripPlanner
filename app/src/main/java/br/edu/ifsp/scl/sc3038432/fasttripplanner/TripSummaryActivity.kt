@@ -6,6 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.screens.TripSummaryScreen
 
+/*
+ * Receives all trip data and displays the final summary
+ * with the calculated total cost. Allows restarting
+ * the planning flow by clearing the back stack.
+ */
 class TripSummaryActivity : ComponentActivity() {
 
     override fun onCreate( savedInstanceState: Bundle? ) {
