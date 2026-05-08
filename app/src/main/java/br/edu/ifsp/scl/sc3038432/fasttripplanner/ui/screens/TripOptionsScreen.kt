@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.AccommodationSelector
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.PrimaryButton
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.ServiceCheckboxGroup
+import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.ServiceCheckboxRow
 
 /*
  * Second screen. Displays a summary of the trip data received from TripInputScreen,
@@ -46,6 +47,8 @@ fun TripOptionsScreen(
     var hasTransport by rememberSaveable { mutableStateOf(false) }
     var hasFood by rememberSaveable { mutableStateOf(false) }
     var hasTours by rememberSaveable { mutableStateOf(false) }
+    // new mode
+    var hasEconomic by rememberSaveable {mutableStateOf(false)}
 
     Column(
         modifier = Modifier
@@ -78,13 +81,18 @@ fun TripOptionsScreen(
             hasTransport = hasTransport,
             hasFood = hasFood,
             hasTours = hasTours,
+            hasEconomic = hasEconomic,
             onTransportChange = { hasTransport = it },
             onFoodChange = { hasFood = it },
-            onToursChange = { hasTours = it }
+            onToursChange = { hasTours = it },
+            onEconomicChange = { hasEconomic = it }
         )
 
         Spacer(modifier = Modifier.height(24.dp))
 
+
+
+        Spacer(modifier = Modifier.height(24.dp))
         // Buttons Row
         Row {
             PrimaryButton(

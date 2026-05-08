@@ -19,9 +19,11 @@ fun ServiceCheckboxGroup(
     hasTransport: Boolean,
     hasFood: Boolean,
     hasTours: Boolean,
+    hasEconomic: Boolean,
     onTransportChange: (Boolean) -> Unit,
     onFoodChange: (Boolean) -> Unit,
     onToursChange: (Boolean) -> Unit,
+    onEconomicChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column( modifier = modifier ) {
@@ -46,11 +48,18 @@ fun ServiceCheckboxGroup(
             checked = hasTours,
             onCheckedChange = onToursChange
         )
+
+        ServiceCheckboxRow(
+            label = "Economic Mode (85% off)",
+            checked = hasEconomic,
+            onCheckedChange = onEconomicChange
+        )
+
     }
 }
 
 @Composable
-private fun ServiceCheckboxRow(
+fun ServiceCheckboxRow(
     label: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit
@@ -79,8 +88,10 @@ private fun ServiceCheckboxGroupPreview() {
         hasTransport = true,
         hasFood = true,
         hasTours = true,
+        hasEconomic = true,
         onTransportChange = {},
         onFoodChange = {},
-        onToursChange = {}
+        onToursChange = {},
+        onEconomicChange = {}
     )
 }
