@@ -36,6 +36,7 @@ fun TripSummaryScreen(
     accommodation: String,
     hasTransport: Boolean,
     hasFood: Boolean,
+    hasEconomic: Boolean,
     hasTours: Boolean,
     onNewTrip: () -> Unit
 ) {
@@ -46,10 +47,13 @@ fun TripSummaryScreen(
         accommodation = accommodation,
         hasTransport = hasTransport,
         hasFood = hasFood,
+        hasEconomic = hasEconomic,
         hasTours = hasTours
     )
 
-    val totalFormatted = currencyFormat.format(total)
+    var totalFinal = total * 0.85
+
+    val totalFormatted = currencyFormat.format(totalFinal)
 
     Column(
         modifier = Modifier
@@ -88,6 +92,7 @@ fun TripSummaryScreen(
                 if (hasTransport) add("Transporte")
                 if (hasFood) add("Alimentação")
                 if (hasTours) add("Passeios")
+                if (hasEconomic) add("Modo Economico")
             }
             if (services.isEmpty()) {
                 Text(text = "Nenhum serviço adicional", fontSize = 14.sp)
@@ -154,6 +159,7 @@ private fun TripSummaryScreenPreview() {
         accommodation = "Conforto",
         hasTransport = true,
         hasFood = true,
+        hasEconomic = true,
         hasTours = false,
         onNewTrip = {}
     )
@@ -169,6 +175,7 @@ private fun TripSummaryScreenNoServicesPreview() {
         accommodation = "Economica",
         hasTransport = false,
         hasFood = false,
+        hasEconomic = false,
         hasTours = false,
         onNewTrip = {}
     )

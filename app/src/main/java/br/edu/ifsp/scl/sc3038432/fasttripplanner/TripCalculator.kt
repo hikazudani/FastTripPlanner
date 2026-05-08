@@ -21,9 +21,14 @@ fun calculateTotal(
     accommodation: String,
     hasTransport: Boolean,
     hasFood: Boolean,
+    hasEconomic: Boolean,
     hasTours: Boolean
 ): Double {
-    val multiplier = when (accommodation) {
+    var accommodation_m = accommodation
+    if (hasEconomic) {
+        accommodation_m = "Economico"
+    }
+    val multiplier = when (accommodation_m) {
         "Conforto" -> MULTIPLIER_COMFORT
         "Luxo" -> MULTIPLIER_LUXURY
         else -> MULTIPLIER_ECONOMY

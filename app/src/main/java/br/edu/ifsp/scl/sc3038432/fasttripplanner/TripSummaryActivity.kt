@@ -22,6 +22,7 @@ class TripSummaryActivity : ComponentActivity() {
         val accommodation = intent.getStringExtra( "accommodation" ) ?: "Economica"
         val hasTransport = intent.getBooleanExtra( "hasTransport", false )
         val hasFood = intent.getBooleanExtra( "hasFood", false )
+        val hasEconomic = intent.getBooleanExtra("hasEconomic", false)
         val hasTours = intent.getBooleanExtra( "hasTours", false )
 
         setContent {
@@ -32,6 +33,7 @@ class TripSummaryActivity : ComponentActivity() {
                 accommodation = accommodation,
                 hasTransport = hasTransport,
                 hasFood = hasFood,
+                hasEconomic = hasEconomic,
                 hasTours = hasTours,
                 onNewTrip = {
 

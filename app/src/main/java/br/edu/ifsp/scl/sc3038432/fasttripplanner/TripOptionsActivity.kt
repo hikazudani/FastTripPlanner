@@ -27,7 +27,7 @@ class TripOptionsActivity : ComponentActivity() {
                 days = days,
                 budget = budget,
                 onBack = { finish() },
-                onCalculate = { accommodation, hasTransport, hasFood, hasTours ->
+                onCalculate = { accommodation, hasTransport, hasFood, hasEconomic, hasTours ->
                     val nextIntent = Intent(this, TripSummaryActivity::class.java)
 
                     nextIntent.putExtra("destination", destination)
@@ -37,6 +37,7 @@ class TripOptionsActivity : ComponentActivity() {
                     nextIntent.putExtra("accommodation", accommodation)
                     nextIntent.putExtra("hasTransport", hasTransport)
                     nextIntent.putExtra("hasFood", hasFood)
+                    nextIntent.putExtra("hasEconomic", hasEconomic)
                     nextIntent.putExtra("hasTours", hasTours)
 
                     startActivity(nextIntent)

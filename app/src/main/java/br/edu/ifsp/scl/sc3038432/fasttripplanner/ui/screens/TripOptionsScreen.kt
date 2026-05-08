@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.sp
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.AccommodationSelector
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.PrimaryButton
 import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.ServiceCheckboxGroup
-import br.edu.ifsp.scl.sc3038432.fasttripplanner.ui.components.ServiceCheckboxRow
 
 /*
  * Second screen. Displays a summary of the trip data received from TripInputScreen,
@@ -40,6 +39,7 @@ fun TripOptionsScreen(
             accommodation: String,
             hasTransport: Boolean,
             hasFood: Boolean,
+            hasEconomic: Boolean,
             hasTours: Boolean
             ) -> Unit
 ) {
@@ -70,8 +70,10 @@ fun TripOptionsScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
+
+        //{if (days > 1) "s" else ""}
         AccommodationSelector(
-            selected = accommodation,
+            selected = if (hasEconomic) "Economica" else accommodation ,
             onSelectionChange = { accommodation = it }
         )
 
@@ -80,7 +82,7 @@ fun TripOptionsScreen(
         ServiceCheckboxGroup(
             hasTransport = hasTransport,
             hasFood = hasFood,
-            hasTours = hasTours,
+            hasTours = if(hasEconomic) false else hasTours,
             hasEconomic = hasEconomic,
             onTransportChange = { hasTransport = it },
             onFoodChange = { hasFood = it },
@@ -103,7 +105,7 @@ fun TripOptionsScreen(
             Spacer(modifier = Modifier.width(8.dp))
             PrimaryButton(
                 text = "Calcular",
-                onClick = { onCalculate(accommodation, hasTransport, hasFood, hasTours) },
+                onClick = { onCalculate(accommodation, hasTransport, hasFood, hasEconomic, hasTours) },
                 modifier = Modifier.weight(2f)
             )
         }
@@ -118,6 +120,6 @@ private fun TripOptionsScreenPreview() {
         days = 7,
         budget = 500.0,
         onBack = {},
-        onCalculate = { _, _, _, _ -> }
+        onCalculate = { _, _, _, _,_ -> }
     )
 }
